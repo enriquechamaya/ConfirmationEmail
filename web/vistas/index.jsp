@@ -8,7 +8,7 @@
         <!--HEADER - LIBRERIAS DEFAULT-->
 
     </head>
-    <body class="hold-transition login-page">
+    <body class="hold-transition login-page" style="background-image: url('../AdminLTE/dist/img/boxed-bg.jpg');">
 
         <div class="login-box">
             <div class="login-logo">

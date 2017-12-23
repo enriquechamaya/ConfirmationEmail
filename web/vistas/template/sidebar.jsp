@@ -137,7 +137,7 @@
                     </span>
                 </a>
             </li>
-            <li class="treeview active">
+            <li class="treeview">
                 <a href="#">
                     <i class="fa fa-folder"></i> <span>Examples</span>
                     <span class="pull-right-container">
