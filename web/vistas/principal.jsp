@@ -135,53 +135,46 @@
                                 </div>
                                 <div class="modal-body">
                                     <div class="row">
-                                        <div class="col-md-4">
-                                            <div class="form-group">
-                                                <label for="txt_apellido_pat">Apellido parterno <span class="text-red">(*)</span></label>
-                                                <input type="text" class="form-control text-uppercase" id="txt_apellido_pat" placeholder="Apellido Paterno">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <div class="form-group">
-                                                <label for="txt_apellido_mat">Apellido marterno <span class="text-red">(*)</span></label>
-                                                <input type="text" class="form-control text-uppercase" id="txt_apellido_mat" placeholder="Apellido Materno">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <div class="form-group">
-                                                <label for="txt_nombre">Nombres <span class="text-red">(*)</span></label>
-                                                <input type="text" class="form-control text-uppercase" id="txt_nombre" placeholder="Nombres">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label for="cbo_tipo_doc">Tipo documento <span class="text-red">(*)</span></label>
-                                                <select class="form-control" id="cbo_tipo_doc">
-                                                    <option>[SELECCIONE]</option>
+                                                <label for="cbo_nacionalidad">Nacionalidad <span class="text-red">(*)</span></label>
+                                                <select class="form-control" id="cbo_nacionalidad">
+                                                    <option value="0">[SELECCIONAR]</option>
+                                                    <option value="1">NACIONAL</option>
+                                                    <option value="2">EXTRANJERO</option>
                                                 </select>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label for="txt_nro_doc">N° documento <span class="text-red">(*)</span></label>
-                                                <input type="text" class="form-control text-uppercase" id="txt_nro_doc" placeholder="Apellido Materno">
+                                                <label for="txt_nro_documento">N° Documento <span class="text-red">(*)</span></label>
+                                                <input type="text" class="form-control text-uppercase" id="txt_nro_documento" placeholder="Ingrese su nro de documento">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row" id="div_validarDNI" style="display: none;">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label for="lbl_datos_reniec" class="text-green"><i class="fa fa-check fa-lg"></i> Verificado por reniec</label>
+                                                <input type="text" class="form-control text-uppercase text-green" id="lbl_datos_reniec" disabled="true">
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <label for="txt_correo">Correo <span class="text-red">(*)</span></label>
-                                                <input type="text" class="form-control text-uppercase" id="txt_correo" placeholder="Nombres">
+                                                <label for="txt_coreo">Correo Electrónico <span class="text-red">(*)</span></label>
+                                                <input type="text" class="form-control text-lowercase" id="txt_coreo" placeholder="Ingrese su correo electronico">
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="overlay" id="load" style="display: none;">
+                                        <i class="fa fa-refresh fa-spin"></i> verificando dni...
+                                    </div>
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-flat bg-red" data-dismiss="modal" id="btn_cerrar_reg_per">Cerrar</button>
-                                    <button type="button" class="btn btn-flat bg-blue" id="btn_reg_per">Registrar</button>
+                                    <button type="button" class="btn btn-flat bg-red" data-dismiss="modal" id="btn_cerrar_mdl_reg_per">Cerrar</button>
+                                    <button type="button" class="btn btn-flat bg-blue" id="btn_registrar_mdl_reg_per">Registrar</button>
                                 </div>
                             </div>
                         </div>
@@ -203,6 +196,14 @@
         <!--FOOTER - LIBRERIAS DEFAULT-->
         <%@include file="template/footer-lib.jsp" %>
         <!--FOOTER - LIBRERIAS DEFAULT-->
+
+        <!--FOOTER - LIBRERIAS EXTRAS-->
+        <!--local-->
+        <script src="../js/pages/principal.js" type="text/javascript"></script>
+        
+        <!--validar inputs-->
+        <script src="../AdminLTE/plugins/validateInput/validate_inputs.js" type="text/javascript"></script>
+        <!--FOOTER - LIBRERIAS EXTRAS-->
 
     </body>
 </html>

@@ -4,39 +4,26 @@ $(document).ready(function () {
 
 //validar dni nacional
 function validarDNI() {
-    $('#txt_nro_documento,#txt_coreo').attr({
-        'maxlength': 0,
-        'disabled': true,
-        'value': null
+    $('#txt_nro_documento').validCampo('01234456789');
+    $('#txt_coreo').validCampo('abcdefghijklmnñopqrstuvwxyzáéiou01234456789._@');
+
+    $('#txt_nro_documento, #txt_coreo').attr({
+        maxlength: 0,
+        disabled: true,
+        placeholder: '--------------------'
     });
 
-    $('#cbo_nacionalidad').on('change', function () {
-        var cbo_nacionalidad = $('#cbo_nacionalidad').val();
-        if (cbo_nacionalidad === '0') {
-            $('#txt_nro_documento').attr({
-                'maxlength': 0,
-                'disabled': true,
-                'value': null
-            });
-        } else if (cbo_nacionalidad === '1') {
-            $('#txt_nro_documento').attr({
-                'maxlength': 8,
-                'disabled': false,
-                'value': null
-            });
-            $('#txt_nro_documento').keyup(function () {
-                var dni = $('#txt_nro_documento').val();
-                if (dni.length === 8) {
-                    consularDNI(dni);
-                }
-            });
-        } else if (cbo_nacionalidad === '2') {
-            $('#txt_nro_documento').attr({
-                'maxlength': 15,
-                'disabled': false,
-                'value': null
-            });
+    $('#cbo_nacionalidad').change(function () {
+        var nacionalidad = $('#cbo_nacionalidad').val();
+
+        if (nacionalidad === '0') {
+            console.log("cero");
+        } else if (nacionalidad === '1') {
+            console.log("cero");
+        } else if (nacionalidad === '2') {
+            console.log("cero");
         }
+
     });
 
 }
@@ -44,7 +31,9 @@ function validarDNI() {
 
 // consultar dni nacional
 function consularDNI(dni) {
-    var tecactusApi = new TecactusApi("Z84Hk6wqJ6MJLTXWX6F0p0Z5TPjFXnxYG1aFzgbv");
+//    var tecactusApi = new TecactusApi("Z84Hk6wqJ6MJLTXWX6F0p0Z5TPjFXnxYG1aFzgbv");
+    var tecactusApi = new TecactusApi(":v");
+//    var tecactusApi = new TecactusApi("ycHFbnU1sbD9Yo3nFZR5JHK1tpOmgiCdGO7q7mJv");
     console.log("cargando...");
     $('#load').css('display', 'block');
     tecactusApi.Reniec.getDni(dni)

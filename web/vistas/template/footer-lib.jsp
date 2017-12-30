@@ -11,3 +11,5 @@
 <script src="../AdminLTE/dist/js/app.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="../AdminLTE/dist/js/demo.js"></script>
+<!--API RENIEC-->
+<script src="../js/lib/reniec-sunat-js.min.js" type="text/javascript"></script>
