@@ -25,7 +25,7 @@ public class PersonaSqlDAO implements PersonaDAO {
                 + "tipo_documento.descripcion_corta codTipoDocumento, "
                 + "nro_documento nroDocumento, "
                 + "lower(correo) correo , "
-                + "fecha_registro fechaRegistro, "
+                + "convert(varchar, fecha_registro, 120) fechaRegistro, "
                 + "persona.activo activo "
                 + "from persona "
                 + "inner join dbo.tipo_documento ON dbo.tipo_documento.cod_tipo_documento = dbo.persona.cod_tipo_documento "
@@ -167,15 +167,15 @@ public class PersonaSqlDAO implements PersonaDAO {
 
     public static void main(String[] args) {
         PersonaSqlDAO metodo = new PersonaSqlDAO();
-        System.out.println(metodo.listarPersona().get(0).getApellidoPaterno());
-//        Persona p = new Persona();
-//        p.setApellidoPaterno("chamaya");
-//        p.setApellidoMaterno("de la cruz");
-//        p.setNombre("enrique");
-//        p.setCodTipoDocumento("1");
-//        p.setNroDocumento("74075863");
-//        p.setCorreo("echamaya.ti@sacooliveros.edu.pe");
-//        System.out.println("-> " + metodo.registrarPersona(p));
+//        System.out.println(metodo.listarPersona().get(0).getApellidoPaterno());
+        Persona p = new Persona();
+        p.setApellidoPaterno("chamaya");
+        p.setApellidoMaterno("de la cruz");
+        p.setNombre("enrique");
+        p.setCodTipoDocumento("1");
+        p.setNroDocumento("74075863");
+        p.setCorreo("echamaya.ti@sacooliveros.edu.pe");
+        System.out.println("-> " + metodo.registrarPersona(p));
 //        System.out.println(metodo.generarCodigoAleatorio());
     }
 
