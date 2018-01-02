@@ -1,5 +1,7 @@
 package confirmationemail.dao;
 
+import confirmationemail.sqldao.FactorySqlDAO;
+
 public abstract class FactoryDAO {
 
     public static final int SQLSERVER = 1;
@@ -7,7 +9,7 @@ public abstract class FactoryDAO {
     public static FactoryDAO getFactoryDAO(int sgbd) {
         switch (sgbd) {
             case SQLSERVER:
-                return null;
+                return new FactorySqlDAO();
             default:
                 return null;
         }

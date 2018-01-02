@@ -13,17 +13,84 @@ function validarDNI() {
         placeholder: '--------------------'
     });
 
-    $('#cbo_nacionalidad').change(function () {
+    $('#cbo_nacionalidad').on('change', function () {
+        // validar el cambio de <option>
         var nacionalidad = $('#cbo_nacionalidad').val();
-
         if (nacionalidad === '0') {
             console.log("cero");
+            $('#txt_nro_documento').val(null);
+            $('#txt_coreo').val('');
+            $('#txt_nro_documento, #txt_coreo').attr({
+                maxlength: 0,
+                disabled: true,
+                placeholder: '--------------------'
+            });
         } else if (nacionalidad === '1') {
-            console.log("cero");
-        } else if (nacionalidad === '2') {
-            console.log("cero");
-        }
+            console.log("uno");
+            $('#txt_nro_documento').val(null);
+            $('#txt_coreo').val('');
+            $('#txt_nro_documento').attr({
+                maxlength: 8,
+                disabled: false,
+                placeholder: 'Ingresar DNI'
+            });
+            $('#txt_coreo').attr({
+                maxlength: 0,
+                disabled: true,
+                placeholder: '--------------------'
+            });
+            $('#txt_nro_documento').keyup(function (e) {
+                var dni = $('#txt_nro_documento').val().length;
+                console.log(dni);
+                if (dni === 8) {
+                    $('#txt_coreo').attr({
+                        maxlength: 50,
+                        disabled: false,
+                        placeholder: 'ingrese su correo'
+                    });
+                } else {
+                    $('#txt_coreo').attr({
+                        maxlength: 0,
+                        disabled: true,
+                        placeholder: '--------------------'
+                    });
+                    $('#txt_coreo').val('');
+                }
+            });
 
+        } else if (nacionalidad === '2') {
+            console.log("dos");
+            $('#txt_nro_documento').val(null);
+            $('#txt_coreo').val('');
+            $('#txt_nro_documento').attr({
+                maxlength: 15,
+                disabled: false,
+                placeholder: 'Ingresar otro doc.'
+            });
+            $('#txt_coreo').attr({
+                maxlength: 0,
+                disabled: true,
+                placeholder: '--------------------'
+            });
+            $('#txt_nro_documento').keyup(function (e) {
+                var otro_doc = $('#txt_nro_documento').val().length;
+                console.log(otro_doc);
+                if (otro_doc === 15) {
+                    $('#txt_coreo').attr({
+                        maxlength: 50,
+                        disabled: false,
+                        placeholder: 'ingrese su correo'
+                    });
+                } else {
+                    $('#txt_coreo').attr({
+                        maxlength: 0,
+                        disabled: true,
+                        placeholder: '--------------------'
+                    });
+                    $('#txt_coreo').val('');
+                }
+            });
+        }
     });
 
 }
