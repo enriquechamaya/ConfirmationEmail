@@ -15,4 +15,6 @@ public abstract class FactoryDAO {
         }
     }
 
+    public abstract PersonaDAO getPersonaDAO();
+
 }

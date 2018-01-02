@@ -13,6 +13,7 @@ public class Persona implements Serializable {
     private String codTipoDocumento;
     private String nroDocumento;
     private String correo;
+    private String fechaRegistro;
     private String activo;
 
     public String getCodPersona() {
@@ -71,6 +72,14 @@ public class Persona implements Serializable {
         this.correo = correo;
     }
 
+    public String getFechaRegistro() {
+        return fechaRegistro;
+    }
+
+    public void setFechaRegistro(String fechaRegistro) {
+        this.fechaRegistro = fechaRegistro;
+    }
+
     public String getActivo() {
         return activo;
     }
@@ -78,7 +87,5 @@ public class Persona implements Serializable {
     public void setActivo(String activo) {
         this.activo = activo;
     }
-    
-    
 
 }

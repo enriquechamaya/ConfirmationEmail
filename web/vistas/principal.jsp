@@ -108,10 +108,10 @@
                                                         <th>Correo</th>
                                                         <th>Fecha Registro</th>
                                                         <th>Estado</th>
-                                                        <th>Accion</th>
+                                                        <th class="text-center">Accion</th>
                                                     </tr>
                                                 </thead>
-                                                <tbody>
+                                                <tbody id="dataPersona">
                                                 </tbody>
                                             </table>
                                         </div>

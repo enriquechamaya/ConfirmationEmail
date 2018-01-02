@@ -1,5 +1,7 @@
 $(document).ready(function () {
     validarDNI();
+
+    listarPersona();
 });
 
 //validar dni nacional
@@ -124,4 +126,44 @@ function consularDNI(dni) {
                 });
                 console.log(response.data);
             });
+}
+
+// listar persona
+function listarPersona() {
+    $.ajax({
+        type: 'POST',
+        url: '../PersonaServlet?accion=listarPersona',
+        dataType: 'json',
+        beforeSend: function () {},
+        success: function (data, textStatus, jqXHR) {
+            var row = '';
+            var count = 1;
+            for (var i in data) {
+                console.log(data[i].apellidoPaterno);
+                row = '<tr>'
+                row += '<td>' + count + '</td>'
+                row += '<td>' + data[i].codTipoDocumento + '</td>'
+                row += '<td>' + data[i].nroDocumento + '</td>'
+                row += '<td>' + data[i].correo + '</td>'
+                row += '<td>' + data[i].fechaRegistro + '</td>'
+                if (data[i].activo == 1) {
+                    row += '<td class="text-center"><span class="badge bg-green">ACTIVO</span></td>';
+                } else {
+                    row += '<td class="text-center"><span class="badge bg-red">INACTIVO</span></td>';
+                }
+                row += '<td class="text-center"><button type="button" class="btn btn-xs btn-info btn-flat"><i class="fa fa-search"></i> VER</button></td>'
+                row += '</tr>'
+            }
+            $('#dataPersona').html(row);
+        }
+    });
+}
+
+// registrar persona
+function registrarPersona() {
+    $('#btn_registrar_mdl_reg_per').on('click', function () {
+        var codTipoDocumento = $('#cbo_nacionalidad').val();
+        var nroDocumento = $('#txt_nro_documento').val();
+        var correo = $('#txt_coreo').val();
+    });
 }

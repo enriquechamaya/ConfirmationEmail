@@ -13,4 +13,6 @@ public interface PersonaDAO {
 
     public int eliminarPersona(Persona p);
 
+    public String generarCodigoAleatorio();
+
 }

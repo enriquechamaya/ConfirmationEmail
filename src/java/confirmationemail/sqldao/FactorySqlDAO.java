@@ -1,6 +1,7 @@
 package confirmationemail.sqldao;
 
 import confirmationemail.dao.FactoryDAO;
+import confirmationemail.dao.PersonaDAO;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -29,6 +30,11 @@ public class FactorySqlDAO extends FactoryDAO {
             }
         }
         return cnx;
+    }
+
+    @Override
+    public PersonaDAO getPersonaDAO() {
+        return new PersonaSqlDAO();
     }
 
 }
